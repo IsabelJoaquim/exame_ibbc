@@ -2,7 +2,7 @@
 
 #1
 # Load the conda environment
-source activate exame
+conda activate exame
 echo "Enviroment activated"
 
 # Create main directory
