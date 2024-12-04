@@ -2,7 +2,8 @@
 
 #1
 # Load the conda environment
-conda activate exame
+conda init
+conda activate tools_qc
 echo "Enviroment activated"
 
 # Create main directory
@@ -12,7 +13,9 @@ mkdir -p ~/exame/{raw_data,processed_data,results,logs}
 # Move raw data to raw_data directory
 echo "Moving raw data..."
 scp exame_files/0_mM_NOD_plus_1_aaa.fastq.gz ~/exame/raw_data/
+scp exame_files/0_mM_NOD_plus_2_aaa.fastq.gz ~/exame/raw_data/
 scp exame_files/400_mM_NOD_plus_1_aaa.fastq.gz ~/exame/raw_data/
+scp exame_files/400_mM_NOD_plus_2_aaa.fastq.gz ~/exame/raw_data/
 
 echo "Directory structure created and raw data moved."
 
@@ -43,7 +46,7 @@ for SAMPLE in $RAW_DIR/*.fastq.gz; do
     # Step 2: Trimmomatic
     echo "trimmomatic..."
     trimmomatic PE -phred33 \
-        $RAW_DIR/${BASENAME}_1.fastq.gz $RAW_DIR/${BASENAME}_2.fastq.gz \
+        $RAW_DIR/${BASENAME}_1_aaa.fastq.gz $RAW_DIR/${BASENAME}_2_aaa.fastq.gz \
         $PROCESSED_DIR/${BASENAME}_1_paired.fastq.gz $PROCESSED_DIR/${BASENAME}_1_unpaired.fastq.gz \
         $PROCESSED_DIR/${BASENAME}_2_paired.fastq.gz $PROCESSED_DIR/${BASENAME}_2_unpaired.fastq.gz \
         ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:20 MINLEN:36
