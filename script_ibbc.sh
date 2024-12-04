@@ -11,8 +11,8 @@ mkdir -p ~/exame/{raw_data,processed_data,results,logs}
 
 # Move raw data to raw_data directory
 echo "Moving raw data..."
-mv exame_files/0_mM_NOD_plus_1_aaa.fastq.gz ~/exame/raw_data/
-mv exame_files/400_mM_NOD_plus_1_aaa.fastq.gz ~/exame/raw_data/
+scp exame_files/0_mM_NOD_plus_1_aaa.fastq.gz ~/exame/raw_data/
+scp exame_files/400_mM_NOD_plus_1_aaa.fastq.gz ~/exame/raw_data/
 
 echo "Directory structure created and raw data moved."
 
