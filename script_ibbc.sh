@@ -41,7 +41,7 @@ for SAMPLE in $RAW_DIR/*.fastq.gz; do
     fastqc $SAMPLE -o $RESULTS_DIR
     
     # Step 2: Trimmomatic
-    echo #trimmomatic...#
+    echo "trimmomatic..."
     trimmomatic PE -phred33 \
         $RAW_DIR/${BASENAME}_1.fastq.gz $RAW_DIR/${BASENAME}_2.fastq.gz \
         $PROCESSED_DIR/${BASENAME}_1_paired.fastq.gz $PROCESSED_DIR/${BASENAME}_1_unpaired.fastq.gz \
